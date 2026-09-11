@@ -1,7 +1,7 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-// === STEP 1: Hàm không tham số, không trả về giá trị ===
 void showMenu() {
     cout << "===== MENU =====" << endl;
     cout << "1. Display students" << endl;
@@ -10,20 +10,34 @@ void showMenu() {
     cout << "================" << endl;
 }
 
-// === STEP 2: Hàm có 1 tham số (int id), không trả về giá trị ===
 void showStudentID(int id) {
     cout << "Student ID: " << id << endl;
 }
 
+void showScore(string name, double score) {
+    cout << "Student: " << name << endl;
+    cout << "Score  : " << score << endl;
+    cout << "Keep going!" << endl;
+}
 int main() {
-    // Gọi hàm Step 1
     showMenu();
 
-    // Nhập và gọi hàm Step 2
     int id;
     cout << "\nEnter student ID: ";
     cin >> id;
     showStudentID(id);
 
+    cin.ignore();
+
+    string name;
+    double score;
+
+    cout << "\nEnter student name: ";
+    getline(cin, name);
+    cout << "Enter student score: ";
+    cin >> score;
+
+    cout << endl;
+    showScore(name, score);
     return 0;
 }
